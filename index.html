@@ -3,107 +3,419 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CBTis 204 | Tlalpujahua, Mich.</title>
-    <link rel="stylesheet" href="estilos.css">
+    <title>CBTis 204 | Sitio Oficial</title>
+    <style>
+        /* --- ESTILOS GENERALES Y COLORES INSTITUCIONALES --- */
+        :root {
+            --guinda: #6A1C32;      /* Guinda oficial DGETI / SEP */
+            --guinda-luz: #8A2541;  /* Guinda más claro para efectos hover */
+            --gris-oscuro: #2D3142; /* Para textos principales y footer */
+            --gris-medio: #9095A0;  /* Bordes y detalles secundarios */
+            --gris-claro: #F4F5F7;  /* Fondos de secciones */
+            --blanco: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--blanco);
+            color: var(--gris-oscuro);
+            line-height: 1.6;
+        }
+
+        .contenedor {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+
+        /* --- ENCABEZADO Y MENÚ DE NAVEGACIÓN --- */
+        header {
+            background-color: var(--guinda);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo h1 {
+            color: var(--blanco);
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 10px;
+        }
+
+        nav ul li a {
+            color: var(--blanco);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            padding: 10px 18px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        /* Efecto llamativo al pasar el cursor sobre el menú */
+        nav ul li a:hover {
+            background-color: var(--blanco);
+            color: var(--guinda);
+        }
+
+        /* --- SECCIÓN HERO (BIENVENIDA LLAMATIVA) --- */
+        .hero {
+            background: linear-gradient(135deg, var(--guinda) 0%, #4A1021 100%);
+            color: var(--blanco);
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+        }
+
+        .hero h2 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 35px;
+            opacity: 0.9;
+        }
+
+        .btn-primario {
+            background-color: var(--blanco);
+            color: var(--guinda);
+            padding: 14px 32px;
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .btn-primario:hover {
+            background-color: var(--gris-claro);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        /* --- SECCIÓN DE BENEFICIOS (DISEÑO EN TARJETAS/CARDS) --- */
+        .seccion-beneficios {
+            padding: 80px 0;
+            background-color: var(--gris-claro);
+        }
+
+        .titulo-seccion {
+            text-align: center;
+            font-size: 32px;
+            color: var(--guinda);
+            margin-bottom: 50px;
+            position: relative;
+            font-weight: 700;
+        }
+/* Línea decorativa debajo de los títulos */
+        .titulo-seccion::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--guinda);
+            margin: 10px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        .grid-beneficios {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .tarjeta-beneficio {
+            background-color: var(--blanco);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--guinda);
+            transition: transform 0.3s ease;
+        }
+
+        .tarjeta-beneficio:hover {
+            transform: translateY(-5px);
+        }
+
+        .tarjeta-beneficio p {
+            font-size: 15px;
+            color: #4e5569;
+        }
+
+        /* --- SECCIÓN ADMISIÓN / FICHAS --- */
+        .seccion-admision {
+            padding: 80px 0;
+            background-color: var(--blanco);
+        }
+
+        .panel-fichas {
+            background-color: var(--blanco);
+            border: 1px solid var(--gris-medio);
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .destacado-fechas {
+            text-align: center;
+            background-color: var(--gris-claro);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 35px;
+            border: 1px dashed var(--guinda);
+        }
+
+        .destacado-fechas h3 {
+            color: var(--guinda);
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+
+        .requisitos-container {
+            margin-top: 30px;
+        }
+
+        .requisitos-container h3 {
+            font-size: 20px;
+            color: var(--gris-oscuro);
+            margin-bottom: 20px;
+        }
+
+        .lista-requisitos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            list-style: none;
+        }
+
+        .lista-requisitos li {
+            background-color: var(--gris-claro);
+            padding: 12px 15px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Pequeño punto guinda para la lista */
+        .lista-requisitos li::before {
+            content: "•";
+            color: var(--guinda);
+            font-weight: bold;
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        .alerta-agosto {
+            background-color: #FFF3F5;
+            border-left: 5px solid #D9383A;
+            padding: 20px;
+            border-radius: 4px;
+            margin-top: 40px;
+        }
+
+        .alerta-agosto p {
+            margin-bottom: 5px;
+            color: #A91D22;
+            font-weight: 600;
+        }
+
+        .slogan-final {
+            text-align: center;
+            margin-top: 40px;
+            color: var(--guinda);
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        /* --- PIE DE PÁGINA (DIRECTORIO Y CONTACTO) --- */
+        footer {
+            background-color: var(--gris-oscuro);
+            color: var(--blanco);
+            padding: 60px 0 0 0;
+            font-size: 14px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            padding-bottom: 40px;
+        }
+
+        footer h3 {
+            color: var(--blanco);
+            font-size: 18px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--guinda);
+            padding-bottom: 8px;
+            display: inline-block;
+        }
+
+        footer p {
+            margin-bottom: 12px;
+            color: #CDD1D9;
+        }
+
+        footer strong {
+            color: var(--blanco);
+        }
+.lista-directorio {
+            list-style: none;
+        }
+
+        .lista-directorio li {
+            margin-bottom: 12px;
+            color: #CDD1D9;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            padding-bottom: 8px;
+        }
+
+        .footer-bottom {
+            background-color: #1A1D24;
+            text-align: center;
+            padding: 20px;
+            color: #7E8494;
+            font-size: 13px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+    </style>
 </head>
 <body>
 
-    <!-- MENÚ DE NAVEGACIÓN -->
     <header>
-        <div class="logo-container">
-            <h1>CBTis 204</h1>
+        <div class="contenedor header-container">
+            <div class="logo">
+                <h1>CBTis 204</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="beneficios.html">Beneficios</a></li>
+                    <li><a href="admision.html">Admisión 2026</a></li>
+                    <li><a href="directorio.html">Directorio</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="beneficios.html">Beneficios</a></li>
-                <li><a href="admision.html">Admisión 2026</a></li>
-                <li><a href="directorio.html">Directorio</a></li>
-            </ul>
-        </nav>
     </header>
 
-    <!-- SECCIÓN PRINCIPAL (HERO) -->
     <section class="hero">
-        <h2>Bienvenidos al CBTis 204</h2>
-        <p>¡Da el primer paso hacia tu vida profesional!</p>
-        <a href="#fichas" class="btn-primario">Información de Ingreso</a>
+        <div class="contenedor">
+            <h2>Bienvenidos al CBTis 204</h2>
+            <p>¡Da el primer paso hacia tu vida profesional!</p>
+            <a href="#fichas" class="btn-primario">Proceso de Fichas</a>
+        </div>
     </section>
 
-    <!-- SECCIÓN DE BENEFICIOS -->
-    <section class="seccion gris">
+    <section class="seccion-beneficios">
         <div class="contenedor">
             <h2 class="titulo-seccion">Principales Beneficios</h2>
-            <ul class="lista-beneficios">
-                <li>Concluir tu educación media superior con <strong>bachillerato bivalente</strong>.</li>
-                <li>Adquirir tu <strong>título y cédula profesional como técnico</strong>.</li>
-                <li>Inscripción a la Beca Benito Juárez.</li>
-                <li>Servicio de enfermería y Seguro de vida.</li>
-                <li>Atención médica en el IMSS.</li>
-                <li>Participación en eventos culturales, cívicos y deportivos.</li>
-                <li>Encuentros académicos y tutoría grupal.</li>
-                <li>Pertenecer a un club deportivo, cultural, artístico, académico o de investigación.</li>
-                <li>Modelo de Formación DUAL.</li>
-                <li>Orientación vocacional y educativa.</li>
-            </ul>
+            <div class="grid-beneficios">
+                <div class="tarjeta-beneficio"><p>Concluir tu educación media superior con <strong>bachillerato bivalente</strong>.</p></div>
+                <div class="tarjeta-beneficio"><p>Adquirir tu <strong>título y cédula profesional como técnico</strong> en una de las carreras que te ofrecemos.</p></div>
+                <div class="tarjeta-beneficio"><p>Inscripción directa a la <strong>Beca Benito Juárez</strong>.</p></div>
+                <div class="tarjeta-beneficio"><p>Servicio de <strong>enfermería</strong> y <strong>Seguro de vida</strong> integrado.</p></div>
+                <div class="tarjeta-beneficio"><p>Atención médica asegurada en el <strong>IMSS</strong>.</p></div>
+                <div class="tarjeta-beneficio"><p>Participación en destacados eventos <strong>culturales, cívicos y deportivos</strong>.</p></div>
+                <div class="tarjeta-beneficio"><p>Encuentros académicos constantes y programas de <strong>tutoría grupal</strong>.</p></div>
+                <div class="tarjeta-beneficio"><p>Pertenecer a clubes deportivos, artísticos o de investigación avanzada.</p></div>
+                <div class="tarjeta-beneficio"><p>Incorporación al innovador <strong>Modelo de Formación DUAL</strong>.</p></div>
+                <div class="tarjeta-beneficio"><p>Servicio completo de <strong>orientación vocacional</strong> y educativa.</p></div>
+            </div>
         </div>
     </section>
 
-    <!-- SECCIÓN DE ENTREGA DE FICHAS -->
-    <section id="fichas" class="seccion blanco">
+    <section id="fichas" class="seccion-admision">
         <div class="contenedor">
             <h2 class="titulo-seccion">Entrega de Fichas 2026</h2>
-            <div class="info-fichas">
-                <p><strong>A partir del 16 de Febrero 2026</strong> en la oficina de control escolar del CBTIS 204.</p>
-                <p><strong>Horario:</strong> 8:00 a 13:00 horas.</p>
+            <div class="panel-fichas">
                 
-                <h3>Requisitos para Ficha:</h3>
-                <ul class="lista-requisitos">
-                    <li>Constancia de secundaria ORIGINAL.</li>
-                    <li>Copia de la CURP.</li>
-                    <li>Copia del acta de nacimiento.</li>
-                    <li>2 fotografías tamaño infantil.</li>
-                    <li>Comprobante de domicilio reciente.</li>
-                    <li>Copia del INE del Padre o Tutor.</li>
-                    <li>Número de teléfono celular con acceso a WhatsApp.</li>
-                </ul>
-
-                <div class="alerta">
-                    <p><strong>INSCRIPCIONES:</strong> EN EL MES DE AGOSTO DE 2026</p>
-                    <p><strong>CURSO PROPEDÉUTICO E INDUCCIÓN:</strong> EN EL MES DE AGOSTO (LA ASISTENCIA ES OBLIGATORIA).</p>
+                <div class="destacado-fechas">
+                    <h3>A partir del 16 de Febrero 2026</h3>
+                    <p>Lugar: Oficina de Control Escolar del CBTis 204</p>
+                    <p><strong>Horario:</strong> 8:00 a 13:00 horas</p>
                 </div>
-                <h3 class="slogan">¡Construye tu futuro hoy y únete a la gran familia CBTis 204!</h3>
+
+                <div class="requisitos-container">
+                    <h3>Requisitos indispensables para ficha:</h3>
+                    <ul class="lista-requisitos">
+                        <li>Constancia de secundaria ORIGINAL</li>
+                        <li>Copia de la CURP</li>
+                        <li>Copia del acta de nacimiento</li>
+                        <li>2 fotografías tamaño infantil</li>
+<li>Comprobante de domicilio reciente</li>
+                        <li>Copia del INE del Padre o Tutor</li>
+                        <li>Número celular con acceso a WhatsApp</li>
+                    </ul>
+                </div>
+
+                <div class="alerta-agosto">
+                    <p>⚠️ <strong>INSCRIPCIONES:</strong> Se llevarán a cabo en el mes de AGOSTO DE 2026.</p>
+                    <p>⚠️ <strong>CURSO PROPEDÉUTICO E INDUCCIÓN:</strong> En el mes de AGOSTO (La asistencia es completamente obligatoria).</p>
+                </div>
+
+                <h3 class="slogan-final">¡Construye tu futuro hoy y únete a la gran familia CBTis 204!</h3>
             </div>
         </div>
     </section>
 
-    <!-- PIE DE PÁGINA / DIRECTORIO -->
     <footer>
         <div class="contenedor footer-grid">
-            <div class="contacto">
-                <h3>Contacto</h3>
-                <p>Km. 39+000 Carretera Maravatio-Tlalpujahua, Tlalpujahua, Michoacán.</p>
-                <p><strong>E-mail principal:</strong> cbtis204.dir@dgeti.sems.gob.mx</p>
-                <p><strong>E-mail escolar:</strong> cbtis204.subdir@dgeti.sems.gob.mx</p>
-<p><strong>Sitio Web:</strong> www.cbtis204.edu.mx</p>
-                <p><strong>Facebook:</strong> CBTIS No. 204</p>
-            </div>
             
-            <div class="directorio">
-                <h3>Directorio</h3>
-                <ul>
-                    <li><strong>M.C. Gabriel Esteban Olay Blanco</strong> - Director</li>
-                    <li><strong>L.R.I. José Luis Valenzuela Rangel</strong> - Subdirector Académico</li>
-                    <li><strong>Arq. José Martín Guerra Cruz</strong> - Jefe del Depto. de Servs. Docentes</li>
-                    <li><strong>L.Enf. Diana Alejandra Villegas Coria</strong> - Jefa del Depto. de Servicios Escolares</li>
-                    <li><strong>Lic. Abner Isaac Romero Del Villar</strong> - Jefe del Depto. de Vinculación</li>
-                    <li><strong>L.C. Norma Vazquez Garcia</strong> - Jefa del Depto. de Planeación y Evaluación</li>
-                    <li><strong>L.S.C. Oscar Colin Ruiz</strong> - Jefe del Depto. de Servicios Admvos</li>
+            <div class="contacto-bloque">
+                <h3>Contacto Plantel</h3>
+                <p><strong>Ubicación:</strong> Km. 39+000 Carretera Maravatio-Tlalpujahua, Tlalpujahua, Michoacán.</p>
+                <p><strong>E-mail institucional:</strong> cbtis204.dir@dgeti.sems.gob.mx</p>
+                <p><strong>E-mail subdirección:</strong> cbtis204.subdir@dgeti.sems.gob.mx</p>
+                <p><strong>Sitio Web:</strong> www.cbtis204.edu.mx</p>
+                <p><strong>Facebook Oficial:</strong> CBTIS No. 204</p>
+            </div>
+
+            <div class="directorio-bloque">
+                <h3>Directorio Institucional</h3>
+                <ul class="lista-directorio">
+                    <li><strong>M.C. Gabriel Esteban Olay Blanco</strong> <br> Director</li>
+                    <li><strong>L.R.I. José Luis Valenzuela Rangel</strong> <br> Subdirector Académico</li>
+                    <li><strong>Arq. José Martín Guerra Cruz</strong> <br> Jefe del Depto. de Servs. Docentes</li>
+                    <li><strong>L.Enf. Diana Alejandra Villegas Coria</strong> <br> Jefa del Depto. de Servicios Escolares</li>
+                    <li><strong>Lic. Abner Isaac Romero Del Villar</strong> <br> Jefe del Depto. de Vinculación</li>
+                    <li><strong>L.C. Norma Vazquez Garcia</strong> <br> Jefa del Depto. de Planeación y Evaluación</li>
+                    <li><strong>L.S.C. Oscar Colin Ruiz</strong> <br> Jefe del Depto. de Servicios Admvos</li>
                 </ul>
             </div>
+
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 CBTis 204 - DGETI | SEP</p>
+            <p>&copy; 2026 CBTis 204 - Dirección General de Educación Tecnológica Industrial (DGETI)</p>
         </div>
     </footer>
 
