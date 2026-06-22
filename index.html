@@ -3,28 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CBTis 204 | Sitio Oficial</title>
+    <title>CBTis 204 | Inicio</title>
     <style>
-        /* --- VARIABLES DE COLORES E IDENTIDAD --- */
         :root {
-            --guinda: #6A1C32;      /* Guinda oficial DGETI */
-            --guinda-luz: #8A2541;  /* Variación para efectos */
-            --gris-oscuro: #2D3142; /* Textos principales y footer */
-            --gris-medio: #9095A0;  /* Bordes y detalles */
-            --gris-claro: #F4F5F7;  /* Fondos alternos */
+            --guinda: #6A1C32;
+            --guinda-luz: #8A2541;
+            --gris-oscuro: #2D3142;
+            --gris-medio: #9095A0;
+            --gris-claro: #F4F5F7;
             --blanco: #FFFFFF;
-        }
-
-        /* --- CONFIGURACIÓN GLOBAL --- */
-        html {
-            scroll-behavior: smooth; /* Hace que el menú se deslice suavemente */
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Segoe UI', sans-serif;
         }
 
         body {
@@ -39,11 +33,7 @@
             padding: 0 25px;
         }
 
-        section {
-            padding: 90px 0; /* Espaciado uniforme entre secciones */
-        }
-
-        /* --- ENCABEZADO Y MENÚ FIJO --- */
+        /* --- ENCABEZADO Y MENÚ --- */
         header {
             background-color: var(--guinda);
             position: sticky;
@@ -63,50 +53,40 @@
             color: var(--blanco);
             font-size: 24px;
             font-weight: 800;
-            letter-spacing: 1px;
         }
 
         nav ul {
             list-style: none;
             display: flex;
-            gap: 10px;
+            gap: 5px;
         }
 
         nav ul li a {
             color: var(--blanco);
             text-decoration: none;
             font-weight: 600;
-            font-size: 15px;
-            padding: 10px 18px;
+            font-size: 14px;
+            padding: 10px 15px;
             border-radius: 6px;
             transition: all 0.3s ease;
         }
 
-        nav ul li a:hover {
+        nav ul li a:hover, nav ul li a.activo {
             background-color: var(--blanco);
             color: var(--guinda);
         }
 
-        /* --- SECCIÓN 1: INICIO (HERO CON IMAGEN DE FONDO) --- */
+        /* --- HERO --- */
         .hero {
             background: linear-gradient(rgba(106, 28, 50, 0.85), rgba(45, 49, 66, 0.85)), 
                         url('https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&w=1920') no-repeat center center/cover;
             color: var(--blanco);
             text-align: center;
-            padding: 160px 20px;
+            padding: 140px 20px;
         }
 
-        .hero h2 {
-            font-size: 46px;
-            font-weight: 800;
-            margin-bottom: 15px;
-        }
-
-        .hero p {
-            font-size: 22px;
-            margin-bottom: 35px;
-            opacity: 0.9;
-        }
+        .hero h2 { font-size: 42px; margin-bottom: 15px; font-weight: 800; }
+        .hero p { font-size: 20px; margin-bottom: 30px; opacity: 0.9; }
 
         .btn-primario {
             background-color: var(--blanco);
@@ -115,39 +95,27 @@
             text-decoration: none;
             font-weight: 700;
             border-radius: 30px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
             text-transform: uppercase;
-            font-size: 14px;
+            font-size: 13px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
-        .btn-primario:hover {
-            background-color: var(--gris-claro);
-            transform: translateY(-3px);
-        }
+        .btn-primario:hover { background-color: var(--gris-claro); transform: translateY(-2px); }
 
-        /* --- TÍTULOS DE SECCIÓN ESTILIZADOS --- */
+        /* --- SECCIÓN CARRERAS --- */
+        .seccion { padding: 80px 0; }
         .titulo-seccion {
             text-align: center;
-            font-size: 32px;
+            font-size: 30px;
             color: var(--guinda);
             margin-bottom: 50px;
             font-weight: 700;
             text-transform: uppercase;
         }
-.titulo-seccion::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background-color: var(--guinda);
-            margin: 10px auto 0 auto;
-            border-radius: 2px;
-        }
 
-        /* --- SECCIÓN 2: CARRERAS (TARJETAS MODERNAS) --- */
-        .seccion-carreras {
-            background-color: var(--blanco);
+        .titulo-seccion::after {
+            content: ''; display: block; width: 60px; height: 4px; background-color: var(--guinda); margin: 10px auto 0;
         }
 
         .grid-carreras {
@@ -162,216 +130,58 @@
             box-shadow: 0 6px 18px rgba(0,0,0,0.06);
             overflow: hidden;
             border: 1px solid #E1E4E8;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease;
         }
+.tarjeta-carrera:hover { transform: translateY(-8px); }
+        .tarjeta-carrera img { width: 100%; height: 210px; object-fit: cover; }
+        .tarjeta-cuerpo { padding: 25px; }
+        .tarjeta-cuerpo h3 { color: var(--guinda); font-size: 19px; margin-bottom: 12px; }
+        .tarjeta-cuerpo p { font-size: 14px; color: #555964; }
 
-        .tarjeta-carrera:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.12);
-        }
-
-        .tarjeta-carrera img {
-            width: 100%;
-            height: 210px;
-            object-fit: cover;
-        }
-
-        .tarjeta-cuerpo {
-            padding: 25px;
-        }
-
-        .tarjeta-cuerpo h3 {
-            color: var(--guinda);
-            font-size: 19px;
-            margin-bottom: 12px;
-            font-weight: 700;
-        }
-
-        .tarjeta-cuerpo p {
-            font-size: 15px;
-            color: #555964;
-        }
-
-        /* --- SECCIÓN 3: BENEFICIOS (DISEÑO LIMPIO) --- */
-        .seccion-beneficios {
-            background-color: var(--gris-claro);
-        }
-
-        .panel-bloque {
-            background-color: var(--blanco);
-            border-radius: 12px;
-            padding: 40px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-        }
-
-        .lista-beneficios {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            list-style: none;
-        }
-
-        .lista-beneficios li {
-            background-color: var(--gris-claro);
-            padding: 16px;
-            border-radius: 8px;
-            font-size: 15px;
-            font-weight: 500;
-            border-left: 5px solid var(--guinda);
-        }
-
-        /* --- SECCIÓN 4: ADMISIÓN Y FICHAS --- */
-        .seccion-admision {
-            background-color: var(--blanco);
-        }
-
-        .destacado-fechas {
-            text-align: center;
-            background-color: var(--gris-claro);
-            padding: 25px;
-            border-radius: 10px;
-            margin-bottom: 40px;
-            border: 1px dashed var(--guinda);
-        }
-
-        .destacado-fechas h3 {
-            color: var(--guinda);
-            font-size: 24px;
-            margin-bottom: 5px;
-        }
-
-        .lista-requisitos {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            list-style: none;
-            margin-top: 20px;
-        }
-
-        .lista-requisitos li {
-            background-color: var(--gris-claro);
-            padding: 12px 15px;
-            border-radius: 6px;
-            font-size: 14px;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-        }
-
-        .lista-requisitos li::before {
-            content: "•";
-            color: var(--guinda);
-            font-weight: bold;
-            font-size: 22px;
-            margin-right: 12px;
-        }
-
-        .alerta-roja {
-            background-color: #FFF3F5;
-            border-left: 5px solid #D9383A;
-            padding: 20px;
-            border-radius: 4px;
-            margin-top: 40px;
-        }
-
-        .alerta-roja p {
-            margin-bottom: 5px;
-            color: #A91D22;
-            font-weight: 600;
-        }
-
-        .slogan-final {
-            text-align: center;
-            margin-top: 45px;
-            color: var(--guinda);
-            font-size: 22px;
-            font-weight: 700;
-        }
-/* --- PIE DE PÁGINA (CONTACTO Y DIRECTORIO) --- */
-        footer {
-            background-color: var(--gris-oscuro);
-            color: var(--blanco);
-            padding: 60px 0 0 0;
-            font-size: 14px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            padding-bottom: 40px;
-        }
-
-        footer h3 {
-            color: var(--blanco);
-            font-size: 18px;
-            margin-bottom: 20px;
-            border-bottom: 2px solid var(--guinda);
-            padding-bottom: 8px;
-            display: inline-block;
-        }
-
-        footer p { margin-bottom: 12px; color: #CDD1D9; }
-        footer strong { color: var(--blanco); }
-
-        .lista-directorio { list-style: none; }
-        .lista-directorio li {
-            margin-bottom: 12px;
-            color: #CDD1D9;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            padding-bottom: 8px;
-        }
-
-        .footer-bottom {
-            background-color: #1A1D24;
-            text-align: center;
-            padding: 20px;
-            color: #7E8494;
-            border-top: 1px solid rgba(255,255,255,0.05);
-        }
+        /* --- FOOTER --- */
+        footer { background-color: var(--gris-oscuro); color: var(--blanco); padding: 40px 0 0 0; font-size: 14px; margin-top: 40px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; padding-bottom: 30px; }
+        footer h3 { color: var(--blanco); margin-bottom: 15px; border-bottom: 2px solid var(--guinda); padding-bottom: 5px; display: inline-block; }
+        footer p { margin-bottom: 10px; color: #CDD1D9; }
+        .footer-bottom { background-color: #1A1D24; text-align: center; padding: 15px; color: #7E8494; font-size: 13px; }
     </style>
 </head>
 <body>
 
     <header>
         <div class="contenedor header-container">
-            <div class="logo">
-                <h1>CBTis 204</h1>
-            </div>
+            <div class="logo"><h1>CBTis 204</h1></div>
             <nav>
                 <ul>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#carreras">Carreras</a></li>
-                    <li><a href="#beneficios">Beneficios</a></li>
-                    <li><a href="#admision">Admisión 2026</a></li>
+                    <li><a href="index.html" class="activo">Inicio</a></li>
+                    <li><a href="beneficios.html">Beneficios</a></li>
+                    <li><a href="admision.html">Admisión 2026</a></li>
+                    <li><a href="directorio.html">Directorio</a></li>
+                    <li><a href="privacidad.html">Aviso de Privacidad</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <div id="inicio">
-        <section class="hero">
-            <div class="contenedor">
-                <h2>Bienvenidos al CBTis 204</h2>
-                <p>¡Da el primer paso hacia tu vida profesional!</p>
-                <a href="#admision" class="btn-primario">Proceso de Fichas</a>
-            </div>
-        </section>
+    <div class="hero">
+        <div class="contenedor">
+            <h2>Bienvenidos al CBTis 204</h2>
+            <p>¡Da el primer paso hacia tu vida profesional!</p>
+            <a href="admision.html" class="btn-primario">Proceso de Fichas</a>
+        </div>
     </div>
 
-    <section id="carreras" class="seccion-carreras">
+    <section class="seccion">
         <div class="contenedor">
             <h2 class="titulo-seccion">Nuestras Carreras Técnicas</h2>
             <div class="grid-carreras">
-                
                 <div class="tarjeta-carrera">
-                    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=600" alt="Recursos Humanos">
+                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=600" alt="Recursos Humanos">
                     <div class="tarjeta-cuerpo">
                         <h3>Administración de Recursos Humanos</h3>
                         <p>Aprende a gestionar el talento humano, procesos de selección, integración y relaciones laborales en organizaciones.</p>
                     </div>
                 </div>
-
                 <div class="tarjeta-carrera">
                     <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=500" alt="Contabilidad">
                     <div class="tarjeta-cuerpo">
@@ -379,7 +189,6 @@
                         <p>Domina el registro financiero, auditorías, cálculo de impuestos y la toma de decisiones económicas estratégicas.</p>
                     </div>
                 </div>
-
                 <div class="tarjeta-carrera">
                     <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=500" alt="Construcción">
                     <div class="tarjeta-cuerpo">
@@ -387,15 +196,13 @@
                         <p>Capacítate en dibujo técnico, interpretación de planos, topografía y supervisión de obras civiles.</p>
                     </div>
                 </div>
-
                 <div class="tarjeta-carrera">
                     <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=500" alt="Ofimática">
-<div class="tarjeta-cuerpo">
+                    <div class="tarjeta-cuerpo">
                         <h3>Ofimática</h3>
                         <p>Especialízate en la gestión de sistemas informáticos, bases de datos y optimización digital de oficinas.</p>
-                    </div>
+</div>
                 </div>
-
                 <div class="tarjeta-carrera">
                     <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?q=80&w=500" alt="Vida Saludable">
                     <div class="tarjeta-cuerpo">
@@ -403,104 +210,45 @@
                         <p>Promueve la salud integral, nutrición correcta, bienestar físico y prevención en la comunidad.</p>
                     </div>
                 </div>
-
                 <div class="tarjeta-carrera">
                     <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=500" alt="Turismo">
                     <div class="tarjeta-cuerpo">
                         <h3>Gestión e Innovación Turística</h3>
-                        <p>Desarrolla proyectos turísticos sustentables, administración hotelera y servicios de hospitalidad de alta calidad.</p>
+                        <p>Desarrolla proyectos turísticos sustentables, administración hotelera y servicios de hospitalidad.</p>
                     </div>
                 </div>
-
                 <div class="tarjeta-carrera">
                     <img src="https://images.unsplash.com/photo-1511556532299-8f662fc26c06?q=80&w=500" alt="E-commerce">
                     <div class="tarjeta-cuerpo">
                         <h3>E-commerce</h3>
-                        <p>Aprende a estructurar tiendas en línea, pasarelas de pago, logística de envíos y estrategias de marketing digital.</p>
+                        <p>Aprende a estructurar tiendas en línea, pasarelas de pago, logística de envíos y marketing digital.</p>
                     </div>
                 </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="beneficios" class="seccion-beneficios">
-        <div class="contenedor">
-            <h2 class="titulo-seccion">Beneficios Institucionales</h2>
-            <div class="panel-bloque">
-                <ul class="lista-beneficios">
-                    <li>Concluir tu educación con <strong>bachillerato bivalente</strong>.</li>
-                    <li>Adquirir tu <strong>título y cédula profesional como técnico</strong>.</li>
-                    <li>Inscripción directa a la <strong>Beca Benito Juárez</strong>.</li>
-                    <li>Servicio de <strong>enfermería</strong> interno y Seguro de vida.</li>
-                    <li>Atención médica asegurada en el <strong>IMSS</strong>.</li>
-                    <li>Participación en destacados eventos <strong>culturales, cívicos y deportivos</strong>.</li>
-                    <li>Encuentros académicos constantes y <strong>tutoría grupal</strong>.</li>
-                    <li>Pertenecer a clubes artísticos, deportivos o de investigación.</li>
-                    <li>Incorporación al innovador <strong>Modelo de Formación DUAL</strong>.</li>
-                    <li>Servicio completo de <strong>orientación vocacional</strong>.</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section id="admision" class="seccion-admision">
-        <div class="contenedor">
-            <h2 class="titulo-seccion">Proceso de Fichas 2026</h2>
-            <div class="panel-bloque">
-                
-                <div class="destacado-fechas">
-                    <h3>A partir del 16 de Febrero 2026</h3>
-                    <p>Lugar: Oficina de Control Escolar del CBTis 204</p>
-                    <p><strong>Horario:</strong> 8:00 a 13:00 horas</p>
-                </div>
-
-                <h3 style="color: var(--guinda); margin-bottom: 15px;">Requisitos indispensables para ficha:</h3>
-                <ul class="lista-requisitos">
-                    <li>Constancia de secundaria ORIGINAL</li>
-                    <li>Copia de la CURP</li>
-                    <li>Copia del acta de nacimiento</li>
-                    <li>2 fotografías tamaño infantil</li>
-                    <li>Comprobante de domicilio reciente</li>
-                    <li>Copia del INE del Padre o Tutor</li>
-                    <li>Número celular con acceso a WhatsApp</li>
-                </ul>
-<div class="alerta-roja">
-                    <p>⚠️ <strong>INSCRIPCIONES:</strong> Se llevarán a cabo en el mes de AGOSTO DE 2026.</p>
-                    <p>⚠️ <strong>CURSO PROPEDÉUTICO E INDUCCIÓN:</strong> En el mes de AGOSTO (Asistencia obligatoria).</p>
-                </div>
-
-                <h3 class="slogan-final">¡Construye tu futuro hoy y únete a la gran familia CBTis 204!</h3>
             </div>
         </div>
     </section>
 
     <footer>
         <div class="contenedor footer-grid">
-            
             <div>
-                <h3>Contacto Plantel</h3>
-                <p><strong>Dirección:</strong> Km. 39+000 Carretera Maravatio-Tlalpujahua, Tlalpujahua, Michoacán.</p>
-                <p><strong>E-mail:</strong> cbtis204.dir@dgeti.sems.gob.mx</p>
-                <p><strong>Sitio Web:</strong> www.cbtis204.edu.mx</p>
+                <h3>Contacto</h3>
+                <p><strong>Dirección:</strong> Km. 39+000 Carretera Maravatio-Tlalpujahua, Michoacán.</p>
+                <p><strong>Email:</strong> cbtis204.dir@dgeti.sems.gob.mx</p>
+            </div>
+            <div>
+                <h3>Redes Sociales</h3>
                 <p><strong>Facebook:</strong> CBTIS No. 204</p>
+                <p><strong>Web:</strong> www.cbtis204.edu.mx</p>
             </div>
-
-            <div>
-                <h3>Directorio Institucional</h3>
-                <ul class="lista-directorio">
-                    <li><strong>M.C. Gabriel Esteban Olay Blanco</strong> - Director</li>
-                    <li><strong>L.R.I. José Luis Valenzuela Rangel</strong> - Subdirector Académico</li>
-                    <li><strong>Arq. José Martín Guerra Cruz</strong> - Servicios Docentes</li>
-                    <li><strong>L.Enf. Diana Alejandra Villegas Coria</strong> - Servicios Escolares</li>
-                </ul>
-            </div>
-
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 CBTis 204 - Dirección General de Educación Tecnológica Industrial (DGETI)</p>
+            <p>&copy; 2026 CBTis 204 - DGETI</p>
         </div>
     </footer>
 
 </body>
 </html>
+
+     
+
+           
