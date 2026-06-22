@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBTis 204 | Admisión 2026</title>
+    <style>
+        :root {
+            --guinda: #6A1C32;
+            --gris-oscuro: #2D3142;
+            --gris-claro: #F4F5F7;
+            --blanco: #FFFFFF;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background-color: var(--blanco); color: var(--gris-oscuro); line-height: 1.6; }
+        .contenedor { max-width: 1200px; margin: 0 auto; padding: 0 25px; }
+        
+        header { background-color: var(--guinda); box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        .header-container { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; }
+        .logo h1 { color: var(--blanco); font-size: 24px; font-weight: 800; }
+        nav ul { list-style: none; display: flex; gap: 5px; }
+        nav ul li a { color: var(--blanco); text-decoration: none; font-weight: 600; font-size: 14px; padding: 10px 15px; border-radius: 6px; }
+        nav ul li a:hover, nav ul li a.activo { background-color: var(--blanco); color: var(--guinda); }
+
+        .seccion { padding: 60px 0; }
+        .titulo-seccion { text-align: center; font-size: 30px; color: var(--guinda); margin-bottom: 40px; font-weight: 700; text-transform: uppercase; }
+        .titulo-seccion::after { content: ''; display: block; width: 60px; height: 4px; background-color: var(--guinda); margin: 10px auto 0; }
+
+        .panel-bloque { background-color: var(--gris-claro); border-radius: 12px; padding: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); border: 1px solid #E1E4E8; }
+        
+        .destacado-fechas { text-align: center; background-color: var(--blanco); padding: 25px; border-radius: 10px; margin-bottom: 40px; border: 2px dashed var(--guinda); }
+        .destacado-fechas h3 { color: var(--guinda); font-size: 24px; margin-bottom: 5px; }
+
+        .lista-requisitos { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 15px; list-style: none; margin-top: 20px; }
+        .lista-requisitos li { background-color: var(--blanco); padding: 14px 18px; border-radius: 6px; font-size: 14px; font-weight: 500; display: flex; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
+        .lista-requisitos li::before { content: "✓"; color: var(--guinda); font-weight: bold; margin-right: 12px; font-size: 16px; }
+
+        .alerta-roja { background-color: #FFF3F5; border-left: 5px solid #D9383A; padding: 20px; border-radius: 4px; margin-top: 40px; }
+        .alerta-roja p { color: #A91D22; font-weight: 600; margin-bottom: 4px; }
+
+        .slogan-final { text-align: center; margin-top: 45px; color: var(--guinda); font-size: 22px; font-weight: 700; }
+        footer { background-color: var(--gris-oscuro); color: var(--blanco); padding: 30px 0 0 0; font-size: 14px; }
+        .footer-bottom { background-color: #1A1D24; text-align: center; padding: 15px; color: #7E8494; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="contenedor header-container">
+            <div class="logo"><h1>CBTis 204</h1></div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="beneficios.html">Beneficios</a></li>
+                    <li><a href="admision.html" class="activo">Admisión 2026</a></li>
+                    <li><a href="directorio.html">Directorio</a></li>
+                    <li><a href="privacidad.html">Aviso de Privacidad</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="seccion">
+        <div class="contenedor">
+            <h2 class="titulo-seccion">Entrega de Fichas 2026</h2>
+<div class="panel-bloque">
+                
+                <div class="destacado-fechas">
+                    <h3>A partir del 16 de Febrero 2026</h3>
+                    <p>Lugar: En la oficina de control escolar del CBTis 204</p>
+                    <p><strong>Horario:</strong> 8:00 a 13:00 horas</p>
+                </div>
+
+                <h3 style="color: var(--guinda); font-size: 18px;">Requisitos para Ficha:</h3>
+                <ul class="lista-requisitos">
+                    <li>Constancia de secundaria ORIGINAL</li>
+                    <li>Copia de la CURP</li>
+                    <li>Copia del acta de nacimiento</li>
+                    <li>2 fotografías tamaño Infantil</li>
+                    <li>Comprobante de domicilio reciente</li>
+                    <li>Copia del INE del Padre o Tutor</li>
+                    <li>Número de teléfono celular con acceso a WhatsApp</li>
+                </ul>
+
+                <div class="alerta-roja">
+                    <p>⚠️ INSCRIPCIONES: En el mes de AGOSTO DE 2026.</p>
+                    <p>⚠️ CURSO PROPEDÉUTICO E INDUCCIÓN: En el mes de AGOSTO (La asistencia es obligatoria).</p>
+                </div>
+
+                <p class="slogan-final">¡Construye tu futuro hoy y únete a la gran familia CBTis 204!</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-bottom"><p>&copy; 2026 CBTis 204 - DGETI</p></div>
+    </footer>
+
+</body>
+</html>
